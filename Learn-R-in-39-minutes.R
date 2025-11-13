@@ -1,5 +1,6 @@
 library(tidyverse)
 library(dplyr)
+library(ggplot2)
 
 data()
 
@@ -10,13 +11,13 @@ colnames(mpg)
 glimpse(mpg)
 
 filter(mpg, cty >= 15)
-mpg_normal_useable <- filter(mpg, cty >= 15)
+  mpg_normal_useable <- filter(mpg, cty >= 15)
 
 mpg_ford <- filter(mpg, manufacturer == "ford")
-View(mpg_ford)
+  View(mpg_ford)
 
 mpg_metric <- mutate(mpg, cty_metric = 0.425144 * cty)
-View(mpg_metric)
+  View(mpg_metric)
 
 mpg_metric <- mpg %>%
   mutate(cty_metric = 0.425144 * cty)
@@ -57,6 +58,3 @@ ggplot(mpg, aes(x = cty,
                 color = class)) +
   geom_point() +
   scale_color_brewer(palette = "Dark2")
-
-
-
